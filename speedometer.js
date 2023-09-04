@@ -35,7 +35,8 @@ stoptBtn.addEventListener("click", () => {
     if (!watchID) return;
     navigator.geolocation.clearWatch(watchID);
     watchID = null;
-
+    updateStopTime(currentRide);
+    currentRide = null
     startBtn.classList.remove("d-none");
     stoptBtn.classList.add("d-none");
 });
