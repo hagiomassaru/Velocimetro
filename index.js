@@ -10,6 +10,7 @@ allRides.forEach(async ([id, value]) => {
         firstPosition.latitude,
         firstPosition.longitude
     );
+    console.log(ride);
     console.log(firstLocationData);
     const itemElement = document.createElement("li");
     itemElement.id = ride.id;
@@ -18,14 +19,14 @@ allRides.forEach(async ([id, value]) => {
     cityDiv.innerText = `${firstLocationData.principalSubdivision} - ${firstLocationData.countryCode}`;
     itemElement.appendChild(cityDiv);
 
-
-    
     rideListElement.appendChild(itemElement);
 });
 
 async function getLocation(latitude, longitude) {
-    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
+    const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&=localityLanguage=en`;
 
     const response = await fetch(url);
     return await response.json();
 }
+
+function getMaxSpeed(positions) {}
